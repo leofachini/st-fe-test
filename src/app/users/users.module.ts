@@ -1,29 +1,15 @@
+import { NgModule } from "@angular/core";
 
-import { NgModule }       from '@angular/core';
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule } from '@angular/material';
-
-import { UserFormComponent } from './user-form/user-form.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UsersComponent }    from './users.component';
-import { UserService } from './user.service';
+import { SharedModule } from "../shared/shared.module";
+import { UserFormComponent } from "./user-form/user-form.component";
+import { UserListComponent } from "./user-list/user-list.component";
+import { UserService } from "./user.service";
+import { UsersComponent } from "./users.component";
 
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
-  ],
-  providers: [
-    UserService,
-  ],
-  declarations: [
-    UserFormComponent,
-    UserListComponent,
-    UsersComponent,
-  ],
-  exports: [
-    UsersComponent,
-  ]
+  imports: [SharedModule],
+  providers: [UserService],
+  declarations: [UserFormComponent, UserListComponent, UsersComponent],
+  exports: [UsersComponent],
 })
 export class UsersModule {}
