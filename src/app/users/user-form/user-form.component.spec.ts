@@ -12,7 +12,6 @@ describe('UserForm', () => {
   let de: DebugElement;
   let el: HTMLElement;
 
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
