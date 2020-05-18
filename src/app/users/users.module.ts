@@ -5,6 +5,7 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule } fr
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UsersComponent }    from './users.component';
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,9 @@ import { UsersComponent }    from './users.component';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+  ],
+  providers: [
+    UserService,
   ],
   declarations: [
     UserFormComponent,
