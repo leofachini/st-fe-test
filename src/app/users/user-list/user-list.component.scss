@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 90%;
+  padding: 30px 0;
+  overflow: hidden;
+  .user-list {
+    overflow: auto;
+    padding-top: 0;
+  }
+}
