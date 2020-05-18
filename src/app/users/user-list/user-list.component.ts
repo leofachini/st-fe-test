@@ -28,4 +28,12 @@ export class UserListComponent {
     // Or you could use this.users.splice(0,this.users.length)
   }
 
+  editUser(user): void {
+    user.isInEditMode = true;
+  }
+
+  saveUser(user): void {
+    user.isInEditMode = false;
+  }
+
 }

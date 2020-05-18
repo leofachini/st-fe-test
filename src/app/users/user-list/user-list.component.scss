@@ -11,12 +11,16 @@
     .user-list-item {
       align-items: center;
       display: grid;
-      grid-template-rows: 1fr;
+      grid-template-rows: 81px;
       grid-template-columns: 70% 30%;
       justify-items: center;
       mat-form-field {
         width: 100%;
       }
     }
+  }
+  [hidden] {
+    // https://github.com/angular/components/issues/445
+    display: none !important;
   }
 }

@@ -24,16 +24,25 @@
     *ngFor="let user of users; index as i"
     class="user-list-item"
     >
-    <mat-form-field appearance="standard">
+    <mat-form-field
+      [hidden]="!user.isInEditMode"
+      appearance="standard"
+      >
       <input
         [(ngModel)]="user.name"
-        [readonly]="readState"
         placeholder="Username"
         matInput
       />
     </mat-form-field>
+    <span
+      [hidden]="user.isInEditMode"
+      >
+      {{ user.name }}
+    </span>
     <div>
       <button
+        (click)="editUser(user)"
+        [hidden]="user.isInEditMode"
         color="primary"
         type="button"
         mat-button
@@ -42,6 +51,7 @@
       </button>
       <button
         (click)="removeUserFromList(i)"
+        [hidden]="user.isInEditMode"
         color="primary"
         type="button"
         mat-button
@@ -49,6 +59,8 @@
         Delete
       </button>
       <button
+        (click)="saveUser(user)"
+        [hidden]="!user.isInEditMode"
         color="primary"
         type="button"
         mat-button
