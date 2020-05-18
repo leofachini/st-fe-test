@@ -38,4 +38,18 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('header > span').textContent).toContain('Santander Frontend Test');
   });
+
+  it('should render users component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('users')).toBeTruthy();
+  });
+
+  it('should render footer', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('footer').textContent).toBe('');
+  });
 });
