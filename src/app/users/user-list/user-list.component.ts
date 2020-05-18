@@ -1,26 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { User } from '../user.model';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent {
+
+  @Input()
+  users: User[];
 
   isEditAllMode: boolean = false;
   readState: boolean = true;
-  users: User[] = [];
-
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-    this.userService.getUsersList()
-      .subscribe(users => this.users = users);
-  }
-
 
   editAll(): void {
     this.isEditAllMode = true;

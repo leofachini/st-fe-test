@@ -1,12 +1,21 @@
-<form action="">
+<form
+  [formGroup]="userForm"
+  (ngSubmit)="submitForm()"
+  >
   <mat-form-field appearance="standard">
     <mat-label>Add new user</mat-label>
-    <input matInput placeholder="Username">
+    <input
+      formControlName="name"
+      placeholder="Username"
+      type="text"
+      matInput
+      >
   </mat-form-field>
   <button
+    [disabled]="!userForm.valid"
     color="primary"
     style="margin-left: 30px"
-    type="button"
+    type="submit"
     mat-button
     >
     Add
