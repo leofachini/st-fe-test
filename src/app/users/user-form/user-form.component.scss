@@ -1,0 +1,23 @@
+:host {
+  align-items: center;
+  border-bottom: 1px solid var(--label-color);
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  form {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    justify-content: flex-start;
+    max-width: 1024px;
+    width: 100%;
+    .form-item {
+      display: flex;
+      flex-direction: column;
+    }
+    #add-user-btn {
+      margin-left: 15px;
+    }
+  }
+}
