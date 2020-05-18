@@ -1,7 +1,9 @@
-<div class="actions-container">
+<div
+  class="actions-container"
+  [hidden]="users.length === 0">
   <button
+    (click)="editAll()"
     color="primary"
-    style="margin-left: 30px"
     type="button"
     mat-button
     >
@@ -17,5 +19,40 @@
   </button>
 </div>
 <div class="user-list">
-  <!-- <mat-list-item *ngFor="let folder of folders"> -->
+  <div
+    *ngFor="let user of users"
+    class="user-list-item"
+    >
+    <mat-form-field appearance="standard">
+      <input
+        [(ngModel)]="user.name"
+        [readonly]="readState"
+        placeholder="Username"
+        matInput
+      />
+    </mat-form-field>
+    <div>
+      <button
+        color="primary"
+        type="button"
+        mat-button
+        >
+        Edit
+      </button>
+      <button
+        color="primary"
+        type="button"
+        mat-button
+        >
+        Delete
+      </button>
+      <button
+        color="primary"
+        type="button"
+        mat-button
+        >
+        Save
+      </button>
+    </div>
+  </div>
 </div>

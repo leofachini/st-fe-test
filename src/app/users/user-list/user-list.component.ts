@@ -10,6 +10,8 @@ import { UserService } from '../user.service';
 })
 export class UserListComponent implements OnInit {
 
+  isEditAllMode: boolean = false;
+  readState: boolean = true;
   users: User[] = [];
 
   constructor(private userService: UserService) { }
@@ -17,6 +19,11 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsersList()
       .subscribe(users => this.users = users);
+  }
+
+
+  editAll(): void {
+    this.isEditAllMode = true;
   }
 
 }
