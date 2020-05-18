@@ -30,4 +30,8 @@ export class UserListComponent implements OnInit {
     this.users.splice(index, 1);
   }
 
+  clearList(): void {
+    this.users = [];
+  }
+
 }
