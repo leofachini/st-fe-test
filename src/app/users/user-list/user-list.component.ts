@@ -26,4 +26,8 @@ export class UserListComponent implements OnInit {
     this.isEditAllMode = true;
   }
 
+  removeUserFromList(index: number): void {
+    this.users.splice(index, 1);
+  }
+
 }

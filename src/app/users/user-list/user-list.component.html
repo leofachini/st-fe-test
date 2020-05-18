@@ -20,7 +20,7 @@
 </div>
 <div class="user-list">
   <div
-    *ngFor="let user of users"
+    *ngFor="let user of users; index as i"
     class="user-list-item"
     >
     <mat-form-field appearance="standard">
@@ -40,6 +40,7 @@
         Edit
       </button>
       <button
+        (click)="removeUserFromList(i)"
         color="primary"
         type="button"
         mat-button
@@ -55,4 +56,8 @@
       </button>
     </div>
   </div>
+  <span
+    [hidden]="users.length !== 0">
+    You must add new users!
+  </span>
 </div>
