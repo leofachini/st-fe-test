@@ -24,7 +24,8 @@ export class UserListComponent {
   }
 
   clearList(): void {
-    this.users = [];
+    this.users.length = 0;
+    // Or you could use this.users.splice(0,this.users.length)
   }
 
 }
