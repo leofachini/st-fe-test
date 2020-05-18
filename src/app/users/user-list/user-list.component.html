@@ -3,6 +3,7 @@
   [hidden]="users.length === 0">
   <button
     (click)="editAll()"
+    [hidden]="isEditAllMode"
     color="primary"
     type="button"
     mat-button
@@ -11,12 +12,22 @@
   </button>
   <button
     (click)="clearList()"
+    [hidden]="isEditAllMode"
     color="primary"
     style="margin-left: 30px"
     type="button"
     mat-button
     >
     Delete All
+  </button>
+  <button
+    (click)="saveAll()"
+    [hidden]="!isEditAllMode"
+    color="primary"
+    type="button"
+    mat-button
+    >
+    Save All
   </button>
 </div>
 <div class="user-list">
@@ -25,7 +36,7 @@
     class="user-list-item"
     >
     <mat-form-field
-      [hidden]="!user.isInEditMode"
+      *ngIf="user.isInEditMode || isEditAllMode"
       appearance="standard"
       >
       <input
@@ -35,11 +46,12 @@
       />
     </mat-form-field>
     <span
-      [hidden]="user.isInEditMode"
+      *ngIf="!user.isInEditMode && !isEditAllMode"
+      style="justify-self: flex-start;"
       >
       {{ user.name }}
     </span>
-    <div>
+    <div [hidden]="isEditAllMode">
       <button
         (click)="editUser(user)"
         [hidden]="user.isInEditMode"

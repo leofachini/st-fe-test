@@ -36,4 +36,8 @@ export class UserListComponent {
     user.isInEditMode = false;
   }
 
+  saveAll(): void {
+    this.isEditAllMode = false;
+  }
+
 }
