@@ -1,0 +1,91 @@
+<div
+  class="actions-container"
+  [hidden]="users.length === 0">
+  <button
+    (click)="editAll()"
+    [hidden]="isEditAllMode"
+    color="primary"
+    type="button"
+    mat-button
+    >
+    Edit All
+  </button>
+  <button
+    (click)="clearList()"
+    [hidden]="isEditAllMode"
+    color="primary"
+    style="margin-left: 30px"
+    type="button"
+    mat-button
+    >
+    Delete All
+  </button>
+  <button
+    (click)="saveAll()"
+    [hidden]="!isEditAllMode"
+    color="primary"
+    type="button"
+    mat-button
+    >
+    Save All
+  </button>
+</div>
+<div class="user-list">
+  <div
+    *ngFor="let user of users; index as i"
+    class="user-list-item"
+    >
+    <mat-form-field
+      *ngIf="user.isInEditMode || isEditAllMode"
+      appearance="standard"
+      >
+      <input
+        [(ngModel)]="user.name"
+        placeholder="Username"
+        matInput
+      />
+    </mat-form-field>
+    <span
+      class="user-label"
+      *ngIf="!user.isInEditMode && !isEditAllMode"
+      >
+      {{ user.name }}
+    </span>
+    <div [hidden]="isEditAllMode">
+      <button
+        class="edit-btn"
+        (click)="editUser(user)"
+        [hidden]="user.isInEditMode"
+        color="primary"
+        type="button"
+        mat-button
+        >
+        Edit
+      </button>
+      <button
+        class="delete-btn"
+        (click)="removeUserFromList(i)"
+        [hidden]="user.isInEditMode"
+        color="primary"
+        type="button"
+        mat-button
+        >
+        Delete
+      </button>
+      <button
+        class="save-btn"
+        (click)="saveUser(user)"
+        [hidden]="!user.isInEditMode"
+        color="primary"
+        type="button"
+        mat-button
+        >
+        Save
+      </button>
+    </div>
+  </div>
+  <span
+    [hidden]="users.length !== 0">
+    You must add new users!
+  </span>
+</div>
