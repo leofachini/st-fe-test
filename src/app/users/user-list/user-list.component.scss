@@ -1,0 +1,29 @@
+:host {
+  display: grid;
+  font-size: 16px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 90%;
+  padding: 30px 20px;
+  overflow: hidden;
+  .user-list {
+    overflow: auto;
+    padding-top: 0;
+    .user-list-item {
+      align-items: center;
+      display: grid;
+      grid-template-rows: 81px;
+      grid-template-columns: 70% 30%;
+      justify-items: center;
+      mat-form-field {
+        width: 100%;
+      }
+      .user-label {
+        justify-self: flex-start;
+      }
+    }
+  }
+  [hidden] {
+    // https://github.com/angular/components/issues/445
+    display: none !important;
+  }
+}

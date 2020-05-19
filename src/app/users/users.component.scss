@@ -1,0 +1,9 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
+  justify-self: center;
+  max-width: 1024px;
+  overflow: hidden;
+  width: 100%;
+}
